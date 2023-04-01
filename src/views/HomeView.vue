@@ -1,17 +1,47 @@
 <template>
-  <div class="w-1/3 m-auto mb-28">
-    <Flicking ref="flicking" :options="{ circular: true }">
-      <div>
-        <span class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</span>
-        <span class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</span>
-        <span class="bg-slate-200 rounded p-4 mr-2">🍎 Apple</span>
-        <span class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</span>
-        <span class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</span>
+  <div class="m-auto mb-28">
+    <h2 class="mb-4 text-2xl">Select your product</h2>
+
+    <div class="w-1/4 m-auto border-2 rounded p-4">
+      <div class="w-6 h-6 bg-blue-500 mb-4 m-auto rounded-full"></div>
+      <Flicking ref="flicking" :options="{ moveType: 'freeScroll' }">
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍉 Watermelon</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🥝 Kiwi</p>
+        <p class="bg-slate-200 rounded p-4 mr-2">🍎 Adivdivle</p>
+      </Flicking>
+      <div class="mt-5">
+        <button class="bg-slate-100 px-4 py-2 rounded mr-7" @click="prev1">
+          Prev
+        </button>
+        <button class="bg-slate-100 px-4 py-2 rounded mr-7" @click="next1">
+          Next
+        </button>
+        <button class="bg-slate-100 px-4 py-2 rounded" @click="moveTolast">
+          Move to last
+        </button>
       </div>
-      <div><span class="bg-slate-200 rounded p-4 mr-2">🍎 Apple</span></div>
-      <div><span class="bg-slate-200 rounded p-4 mr-2">🍎 Apple</span></div>
-      <div><span class="bg-slate-200 rounded p-4 mr-2">🍎 Apple</span></div>
-    </Flicking>
+    </div>
 
     <div class="mt-10">
       <Flicking
@@ -53,6 +83,22 @@ export default {
     },
     prev() {
       this.$refs.flicking2.prev();
+    },
+    next1() {
+      this.$refs.flicking.next();
+
+      let wew = this.$refs.flicking.visiblePanels;
+      let wews = wew[wew.length - 1];
+
+      if (wews._index == this.$refs.flicking.panelCount - 1) {
+        alert("وين تريد تروح بعد");
+      }
+    },
+    prev1() {
+      this.$refs.flicking.prev();
+    },
+    moveTolast() {
+      this.$refs.flicking.moveTo(this.$refs.flicking.panelCount - 1);
     },
   },
 };
